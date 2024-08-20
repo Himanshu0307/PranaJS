@@ -1,4 +1,4 @@
-import { withoutNulls } from "./src/utils/arrays";
+import { withoutNulls } from "./src/utils/arrays.js";
 
 export const DOM_TYPE = {
   TEXT: "text",
@@ -16,11 +16,11 @@ export function h(tag, props = {}, children = []) {
 
 function mapTextNodes(childrens) {
   return childrens.map((child) => {
-    typeof child === "string" ? hString(child) : child;
+    return typeof child === "string" ? hString(child) : child;
   });
 }
 
-function hstring(child) {
+function hString(child) {
   return { type: DOM_TYPE.TEXT, value: child };
 }
 
