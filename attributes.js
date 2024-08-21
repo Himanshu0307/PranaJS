@@ -15,7 +15,7 @@ function setAttributes(element, attr) {
 function setAttribute(el, name, value) {
   if (value == null) {
     removeAttribute(el, name);
-  } else if (name.stastsWith("data-")) {
+  } else if (name.startsWith("data-")) {
     el.setAttribute(name, value);
   } else {
     el[name] = value;
@@ -43,4 +43,3 @@ function setClass(element, className) {
     element.classList.add(...className);
   }
 }
-  

@@ -1,7 +1,8 @@
-import { re } from "./events";
 import { DOM_TYPE } from "./h";
+
+/* *Exposed method to Destroy Virtual DOM */
 export function destroyDOM(vdom) {
-  switch (dom.type) {
+  switch (vdom.type) {
     case DOM_TYPE.ELEMENT:
       removeElementNode(vdom);
       break;
@@ -14,8 +15,12 @@ export function destroyDOM(vdom) {
     default:
       throw new Error("Can't destroy DOM of type " + dom.type);
   }
-  delete dom.el;
+  delete vdom.el;
 }
+
+/*
+ * method to remove Element from virtual DOM
+ */
 
 function removeElementNode(vdom) {
   const { el, listeners, children } = vdom;
@@ -27,11 +32,18 @@ function removeElementNode(vdom) {
   }
 }
 
+/*
+ * method to remove Text Node from VDom
+ */
+
 function removeTextNode(vdom) {
   const { el } = vdom;
   el.remove();
 }
 
+/*
+ * method to remove Fragement Node from VDom
+ */
 function removeFragement(vdom) {
   const { children } = vdom;
   children.forEach(destroyDOM);

@@ -1,4 +1,4 @@
-import { withoutNulls } from "./src/utils/arrays.js";
+import { withoutNulls } from "./src/utils/arrays";
 
 export const DOM_TYPE = {
   TEXT: "text",
