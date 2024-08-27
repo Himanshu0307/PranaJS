@@ -14,17 +14,17 @@ export function h(tag, props = {}, children = []) {
   };
 }
 
-function mapTextNodes(childrens) {
+export function mapTextNodes(childrens) {
   return childrens.map((child) => {
     return typeof child === "string" ? hString(child) : child;
   });
 }
 
-function hString(child) {
+export function hString(child) {
   return { type: DOM_TYPE.TEXT, value: child };
 }
 
-function hfragement(vNodes) {
+export function hfragement(vNodes) {
   return {
     type: DOM_TYPE.FRAGMENT,
     children: mapTextNodes(withoutNulls(vNodes)),
