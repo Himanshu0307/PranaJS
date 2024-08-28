@@ -1,5 +1,5 @@
 import { DOM_TYPE } from "./h";
-function mountDom(vdom, parent) {
+export function mountDom(vdom, parent) {
   switch (dom.type) {
     case DOM_TYPE.ELEMENT: {
       creteElementNode(vdom, parent);
